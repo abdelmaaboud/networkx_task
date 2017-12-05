@@ -9,10 +9,17 @@ G = nx.readwrite.edgelist.read_weighted_edgelist("CE-LC.txt")
 # What are the number of nodes, number of edges and the average degree of the network
 number_of_edges = G.number_of_edges()
 number_of_nodes = G.number_of_nodes()
-average_degree_connectivity = nx.average_degree_connectivity(G)
+
+# find average degree
+degrees = G.degree()
+sum_of_degrees = sum([degree[1] for degree in degrees])
+
+print sum_of_degrees
+average_degree= sum_of_degrees/float(len(G))
+
 print "number of edges : %s"%  number_of_edges
 print "number of nodes : %s"% number_of_nodes
-print "average degree of the network : %s"% average_degree_connectivity
+print "average degree of the network : %s"% average_degree
 
 density = nx.density(G)
 # What is the density of the network.
@@ -58,7 +65,7 @@ print "number of clique communities with 3 nodes : %s"% cliques_len
 report = open("report.txt",'w')
 report.write("number of edges : %s\n"% number_of_edges)
 report.write("number of nodes : %s\n"% number_of_nodes)
-report.write("average degree of the network : %s\n"% average_degree_connectivity)
+report.write("average degree of the network : %s\n"% average_degree)
 
 report.write( "density of the network : %s\n"% density)
 report.write("---the largest connected component of the network  (LC) --\n")
