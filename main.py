@@ -16,14 +16,9 @@ number_of_nodes = G.number_of_nodes()
 degrees = [degree[1] for degree in G.degree()]
 sum_of_degrees = sum(degrees)
 
-print sum_of_degrees
-
 degree_sequence=sorted(degrees,reverse=True) # degree sequence
 #print "Degree sequence", degree_sequence
 dmax=max(degree_sequence)
-print degree_sequence
-print dmax
-
 
 average_degree= sum_of_degrees/float(len(G))
 
@@ -36,7 +31,6 @@ import collections
 degree_count=collections.Counter(degree_sequence)
 deg, cnt = zip(*degree_count.items())
 
-
 plt.bar(deg, cnt, width=1.5, color='b')
 plt.title("degree_histogram")
 plt.savefig("degree_histogram.png")
@@ -46,7 +40,6 @@ plt.show()
 density = nx.density(G)
 # What is the density of the network.
 print "density of the network : %s"% density
-
 
 # Find the minimum spanning tree in G and draw it.
 T=  nx.minimum_spanning_tree(G)
@@ -81,15 +74,11 @@ cliques = [clique for clique in all_cliques if len(clique) == 3]
 cliques_len= len(cliques)
 print "number of clique communities with 3 nodes : %s"% cliques_len
 
-
-
-
 ## What is the name of the protein that changing its status has potentially the biggest effect on the rest of the network?
 # i think the node that have most effect on the network is that have highest degree !!
 max_deg =max(G.degree(),key=lambda item:item[1])
 
 print "the name of the protein that changing its status has potentially the biggest effect on the rest of the network > ", max_deg[0] , "and its degee is ", max_deg[1]
-
 
 #write report.txt to answer some questions
 
