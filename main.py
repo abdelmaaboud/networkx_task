@@ -1,3 +1,5 @@
+#python 2.7
+# pip install networkx
 import networkx as nx
 import matplotlib.pyplot as plt
 
@@ -11,15 +13,36 @@ number_of_edges = G.number_of_edges()
 number_of_nodes = G.number_of_nodes()
 
 # find average degree
-degrees = G.degree()
-sum_of_degrees = sum([degree[1] for degree in degrees])
+
+degrees = [degree[1] for degree in G.degree()]
+sum_of_degrees = sum(degrees)
 
 print sum_of_degrees
+
+degree_sequence=sorted(degrees,reverse=True) # degree sequence
+#print "Degree sequence", degree_sequence
+dmax=max(degree_sequence)
+print degree_sequence
+print dmax
+
+
 average_degree= sum_of_degrees/float(len(G))
 
 print "number of edges : %s"%  number_of_edges
 print "number of nodes : %s"% number_of_nodes
 print "average degree of the network : %s"% average_degree
+
+# degree distribution histogram > i am not sure about this ,
+import collections
+degree_count=collections.Counter(degree_sequence)
+deg, cnt = zip(*degree_count.items())
+
+
+plt.bar(deg, cnt, width=1.5, color='b')
+plt.title("degree_histogram")
+plt.savefig("degree_histogram.png")
+
+plt.show()
 
 density = nx.density(G)
 # What is the density of the network.
