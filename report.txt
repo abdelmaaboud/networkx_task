@@ -6,3 +6,4 @@ density of the network : 0.00171453956602
 diameter  : 22
 center  : [u'C54D1.6', u'C37A5.9']
 number of clique communities with 3 nodes : 88
+the name of the protein that changing its status has potentially the biggest effect on the rest of the network > T08G11.5 and its degee is 131

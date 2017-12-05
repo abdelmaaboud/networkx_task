@@ -13,7 +13,6 @@ number_of_edges = G.number_of_edges()
 number_of_nodes = G.number_of_nodes()
 
 # find average degree
-
 degrees = [degree[1] for degree in G.degree()]
 sum_of_degrees = sum(degrees)
 
@@ -83,6 +82,15 @@ cliques_len= len(cliques)
 print "number of clique communities with 3 nodes : %s"% cliques_len
 
 
+
+
+## What is the name of the protein that changing its status has potentially the biggest effect on the rest of the network?
+# i think the node that have most effect on the network is that have highest degree !!
+max_deg =max(G.degree(),key=lambda item:item[1])
+
+print "the name of the protein that changing its status has potentially the biggest effect on the rest of the network > ", max_deg[0] , "and its degee is ", max_deg[1]
+
+
 #write report.txt to answer some questions
 
 report = open("report.txt",'w')
@@ -97,3 +105,4 @@ report.write("diameter  : %s\n"% Lc_diameter)
 report.write("center  : %s\n"% Lc_center)
 
 report.write("number of clique communities with 3 nodes : %s\n"% cliques_len)
+report.write("the name of the protein that changing its status has potentially the biggest effect on the rest of the network > %s and its degee is %s"%(  max_deg[0] + "", str(max_deg[1])))
