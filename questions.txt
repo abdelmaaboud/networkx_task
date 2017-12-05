@@ -1,0 +1,14 @@
+1-    Build the corresponding network (G) with Networkx
+2-    What are the number of nodes, number of edges and the average
+degree of the network?
+3-    What is the density of the network.
+4-    Find the minimum spanning tree in G and draw it.
+5-    Draw the degree distribution histogram.
+6-    Find the largest connected component of the network  (LC) and
+answer the following questions about LC (or implement the tasks):
+1.    Draw LC.
+2.    What is its diameter?
+3.    What is the center of LC?
+4.    What is the number of clique communities with 3 nodes?
+5.    What is the name of the protein that changing its status has
+potentially the biggest effect on the rest of the network?
